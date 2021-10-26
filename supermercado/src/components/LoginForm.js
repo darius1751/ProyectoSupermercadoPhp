@@ -1,23 +1,19 @@
-import React,{useState} from 'react';
-import { helpHttp } from '../helpers/helpHttp';
+import React,{useState,useContext} from 'react';
+import { TYPES_USER } from '../actions/userAction';
+import UserContext from '../context/UserContext';
 const initialData = {
     user:'',
     password:''
 }
-const LoginForm = ({setUser})=>{
+const LoginForm = ()=>{
+    const {dispatchUser} = useContext(UserContext);
     const [data, setData] = useState(initialData);
     const handleChange =(e)=>{
         setData({...data,[e.target.name]:e.target.value});
     };
     const handleSubmit = (e)=>{
         e.preventDefault();
-        const http = helpHttp();
-        http.post('http://localhost:80/PHP/universidad/supermercado/login.php',{headers:{'Content-Type':'application/json'},body:data})
-        .then(value=>{
-            console.log(value);
-            if(value != null)
-                setUser(value);
-        })
+        dispatchUser({payload:data,type:TYPES_USER.LOGIN});
     };
     return (
         <div className='loginForm'>

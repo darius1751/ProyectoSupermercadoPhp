@@ -1,15 +1,22 @@
 import './App.css';
-import {HashRouter,Route} from 'react-router-dom';
-import React,{useState} from 'react';
+import {HashRouter,Route,Switch} from 'react-router-dom';
+import React from 'react';
 import Login from './pages/Login';
+import { UserProvider } from './context/UserContext';
 function App() {
-  const [user, setUser] = useState(null);
   return (
     <div className="App">
       <HashRouter>
-        <Route path='/' exact>
-          <Login setUser ={setUser}/>
-        </Route>
+        <UserProvider>
+        <Switch>
+          <Route path='/' exact>
+            
+            </Route>
+            <Route path='/login' exact>
+              <Login/>
+            </Route>
+        </Switch>
+        </UserProvider>
       </HashRouter>
     </div>
   );
