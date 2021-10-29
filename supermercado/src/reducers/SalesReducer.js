@@ -1,6 +1,11 @@
 import {TYPES} from '../actions/salesAction';
 export const initialSales = {
+    products:[
 
+    ],
+    cart:[
+        
+    ]
 }
 export const salesReducer = (state,action)=>{
     const {type} = action;
@@ -18,7 +23,7 @@ export const salesReducer = (state,action)=>{
         default:
             break;
     }
-    console.log('Reducer sales')
+    console.log('Reducer sales');
     return state;   
 }
 

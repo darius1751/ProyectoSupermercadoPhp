@@ -8,11 +8,11 @@ export const helpHttp= ()=>{
         const controller = new AbortController();
         options.signal = controller.signal;//Manejar si el servidor por algun motivo esta caido
         options.method = options.method || 'GET';
+        options.mode = 'cors';
         options.headers = options.headers? {...defaultHeaders,...options.headers}: defaultHeaders;
         options.body = JSON.stringify(options.body) || false;
         
         if(!options.body) delete options.body;
-        console.log(options);
         setTimeout(()=>controller.abort(),3000);//Si luego de 3 segundos no responde que la cancele
         return fetch(endPoint,options).then(
             data=>(data.ok?data.json():Promise.reject({

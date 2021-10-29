@@ -1,0 +1,25 @@
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        $_POST = json_decode(file_get_contents('php://input'),true);
+        $key = isset($_POST['key'])?$_POST['key']:null;
+        if(isset($key)){
+            if($key === '12345'){
+                require_once('../models/DAO/UserDAO.php');
+                $userDAO = new UserDAO();
+                $response = $userDAO->login($_POST);
+                $res = isset($response)?$res : ['id'=>0];
+                $res['code'] = 200;
+                http_response_code(200);
+                echo json_encode($res);
+            }else{
+                http_response_code(401);
+                echo json_encode(['code'=>401,'message'=>'Unauthorized','description'=>'Key incorrecta']);
+            }
+        }else{
+            http_response_code(511);
+            echo json_encode(['code'=>511,'message'=>'Network Authentication Required','description'=>'Valida que hayas colocado la key requerida']);
+        }
+        
+    }else{
+        http_response_code(404);
+        echo json_encode(['code'=>404,'message'=>'No se tiene una ruta creada para esta peticion HTTP']);
+    }
