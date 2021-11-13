@@ -70,4 +70,52 @@ html{
   background-color: #61dafb;
   width: 10rem;
   height:2rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+}
+.nav{
+  display: flex;
+  flex-direction: row;
+  flex-flow: row;
+  flex-basis: 1fr auto;
+  height: 4.5rem;
+  background-color: brown;
+  width: 100%;
+}
+.content{
+  margin:0 auto;
+  margin-top: 2rem;
+  width: 80%;
+}
+.nav-link{
+  text-decoration: none;
+}
+.nav-item{
+  background-color: #2f323a;
+  height: 4.5rem;
+  font-size: 1.25rem;
+  color:aqua;
+  margin-left: 1rem;
+  padding: 1rem;
+  border-radius: 3px;
+}
+.nav-item:hover{
+  background-color: #202329;
+}
+.form-text{
+  width: 20rem;
+  height: 2.5rem;
+  margin:0.25rem;
+  border:3px solid gray;
+  border-radius: 10px;
+}
+.form-radio{
+  text-align: center;
+  width: 20rem;
+  margin:0 auto;
+  margin-top: 1rem;
+}
+.option{
+  font-size: 1rem;
 }

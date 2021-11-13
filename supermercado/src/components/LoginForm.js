@@ -18,7 +18,7 @@ const LoginForm = ()=>{
     const handleSubmit = (e)=>{
         e.preventDefault();
         const http = helpHttp();
-        http.post('http://localhost/PHP/universidad/supermercado/server/controllers/login.php',{headers:{'Content-Type': 'application/json'},body:{...data,TOKEN}})
+        http.post('http://localhost/PHP/universidad/supermercado/server/controllers/login.php',{headers:{'Content-Type': 'application/json',TOKEN},body:{...data}})
             .then(value=>{
                 if(value.code === 200) {
                     delete value.code;
@@ -32,14 +32,14 @@ const LoginForm = ()=>{
         
     };
     return (
-        <div className='loginForm'>
+        <div className='loginForm  content'>
             <h2>Iniciar Sesion</h2>
             <form onSubmit={handleSubmit} className='form  col-12'>
-                <input type='text' placeholder='Ingrese su usuario:' name='user' value={data.user} onChange={handleChange} className='text'/>
+                <input type='text' placeholder='Usuario' name='user' value={data.user} onChange={handleChange} className='text' required/>
                 <br/>
-                <input type='password' placeholder='Ingrese su contraseña:' name='password' value={data.password} onChange={handleChange} className='text'/>
+                <input type='password' placeholder='Contraseña' name='password' value={data.password} onChange={handleChange} className='text' required/>
                 <br/>
-                <input type='submit' value='Iniciar Sesion' className='submit'/>
+                <input type='submit' value='Ingresar' className='submit'/>
             </form>
         </div>
         

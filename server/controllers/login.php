@@ -1,9 +1,10 @@
 <?php
     //echo 'POST informacion: ' . file_get_contents('php://input');//Obtener informacion
     require_once('../cors.php');
+    require_once('../Errors.php');
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $_POST = json_decode(file_get_contents('php://input'),true);
-        $TOKEN = isset($_POST['TOKEN'])?$_POST['TOKEN']:null;
+        $TOKEN = isset($_SERVER['HTTP_TOKEN'])?$_SERVER['HTTP_TOKEN']:null;
         if(isset($TOKEN)){
             if($TOKEN === '12345'){
                 if(isset($_POST['user']) && isset($_POST['password'])){
@@ -18,16 +19,16 @@
                     echo json_encode($res);
                 }else{
                     http_response_code(402);
-                    echo json_encode(['code'=>402,"message"=>'Payment Required',"description"=>'No enviaste el user y el password']);
+                    echo json_encode(status(402,'Payment Required','No enviaste el user y el password'));
                 }
                 
             }else{
                 http_response_code(401);
-                echo json_encode(['code'=>401,'message'=>'Unauthorized','description'=>'TOKEN incorrecto']);
+                echo json_encode(status(401,'Unauthorized','TOKEN incorrecto'));
             }
         }else{
             http_response_code(511);
-            echo json_encode(['code'=>511,'message'=>'Network Authentication Required','description'=>'Valida que hayas colocado el TOKEN requerida']);
+            echo json_encode(status(511,'Network Authentication Required','Valida que hayas colocado el TOKEN requerido'));
         }
         
     }

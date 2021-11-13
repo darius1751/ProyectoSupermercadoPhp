@@ -8,10 +8,13 @@ export const initialSales = {
     ]
 }
 export const salesReducer = (state,action)=>{
-    const {type} = action;
+    const {type} = action;  
     switch(type){
+        case TYPES.GET_ALL_PRODUCTS:
+            const {payload} = action;
+            console.log(payload);
+            return {...state,products:payload};
         case TYPES.ADD_TO_CART:
-            console.log('xD');
             break;
         case TYPES.REMOVE_ALL_TO_CART:
             break;

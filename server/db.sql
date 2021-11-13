@@ -50,3 +50,13 @@ echo ['productosEscasos'=>$productosEscasos]
  WHERE identification = ? 
 
 */
+/*
+    //Products
+    INSERT INTO product(name,code) VALUES('Pan','1'),('Arroz','2'),('Aceite','3'),('Azucar','4')
+    
+    //Marcas de Pan
+    INSERT INTO mark(name) VALUES('Bimbo'),('El Horno de Aldi'),('Dulcesol'),('Carrefour'),('La Cestera'),('Hacendado')
+    
+        //Panes
+    INSERT INTO product_item(cant,price_unit,mark_id,product_id) VALUES(50,2500,1,1),(50,2400,2,1),(70,2000,3,1)
+*/
