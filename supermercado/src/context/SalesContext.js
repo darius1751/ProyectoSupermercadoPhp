@@ -19,3 +19,4 @@ export const SalesProvider = ({children})=>{
         </salesContext.Provider>
     );
 }
+    

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { helpHttp } from '../helpers/helpHttp';
 import NavBar from './NavBar';
 const initialUser = {
     identification:null,name:null,birthday:null,direction:null, phone:0
@@ -21,7 +22,11 @@ const Registeruserform = () => {
         e.preventDefault();
         const errors = validate();
         if(!errors){
-            alert("Correcto");
+            helpHttp().post('',{headers:{'content-type':'application/json'}}).then(value=>{
+                
+            }).catch(err=>{
+
+            });
         }else
             alert(errors);
         

@@ -14,8 +14,10 @@ const SelectProducts = ({handleChange,category})=>{
                     data[0]?.products_items?.map(value=>{
                         return <option className='option' key={value.id} value={value.id}>{value.name}</option>
                     })
-                }            
+                }     
             </select>
+            <br/>
+            
         </div>
     );
 }
