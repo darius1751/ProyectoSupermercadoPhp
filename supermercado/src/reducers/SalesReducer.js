@@ -1,7 +1,8 @@
-import {TYPES} from '../actions/salesAction';
+import {TYPES_SALES} from '../actions/salesAction';
+
 export const initialSales = {
     products:[
-
+        
     ],
     cart:[
         
@@ -10,18 +11,17 @@ export const initialSales = {
 export const salesReducer = (state,action)=>{
     const {type} = action;  
     switch(type){
-        case TYPES.GET_ALL_PRODUCTS:
+        case TYPES_SALES.GET_ALL_PRODUCTS:
             const {payload} = action;
-            console.log(payload);
             return {...state,products:payload};
-        case TYPES.ADD_TO_CART:
+        case TYPES_SALES.ADD_TO_CART:
+            return {...state,cart:[...state.cart,payload]};
+        case TYPES_SALES.REMOVE_ALL_TO_CART:
             break;
-        case TYPES.REMOVE_ALL_TO_CART:
-            break;
-        case TYPES.REMOVE_TO_CART:
+        case TYPES_SALES.REMOVE_TO_CART:
             
             break;
-        case TYPES.SALE:
+        case TYPES_SALES.SALE:
             break;
         default:
             break;

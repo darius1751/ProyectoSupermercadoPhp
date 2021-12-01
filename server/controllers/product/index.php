@@ -16,7 +16,7 @@
             }
         }else{
             http_response_code(511);
-            echo json_encode(status(511,'Network Authentication Required','Valida que hayas colocado el TOKEN requerida'));
+            echo json_encode(status(511,'Network Authentication Required','Valida que hayas colocado el TOKEN requerido'));
         }
     }
 ?>

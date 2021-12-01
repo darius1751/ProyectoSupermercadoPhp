@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { salesContext } from '../context/SalesContext';
+import { SalesContext } from '../context/SalesContext';
 const SelectCategories = ({handleChange}) => {
-    const {sales} = useContext(salesContext);
+    const {sales} = useContext(SalesContext);
     
     return (
         <div>

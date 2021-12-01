@@ -78,14 +78,13 @@ html{
   display: flex;
   flex-direction: row;
   flex-flow: row;
-  flex-basis: 1fr auto;
   height: 4.5rem;
   background-color: brown;
   width: 100%;
+  position: fixed;
 }
 .content{
   margin:0 auto;
-  margin-top: 2rem;
   width: 80%;
 }
 .nav-link{
@@ -118,4 +117,38 @@ html{
 }
 .option{
   font-size: 1rem;
+}
+.image{
+  margin-top: 2rem;
+  width: 90%;
+  height:30rem;
+}
+.content-products{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.content-items{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.image-item{
+  width: 20rem;
+  height: 20rem;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+.description-item{
+  text-align: center;
+  font-size: 1rem;
+  background-color: gray;
+}
+.product-item{
+  text-align: center;
+  width: 20rem;
+  margin-bottom: 2rem;
+  margin-top:1rem;
+  margin-right: 1.5rem;
 }

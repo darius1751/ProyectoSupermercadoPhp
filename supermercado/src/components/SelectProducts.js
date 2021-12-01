@@ -1,13 +1,12 @@
 import { useContext } from "react";
-import { salesContext } from "../context/SalesContext";
+import { SalesContext } from "../context/SalesContext";
 
 const SelectProducts = ({handleChange,category})=>{
-    const {sales} = useContext(salesContext);
-    console.log(sales);
+    const {sales} = useContext(SalesContext);
     let data  = sales.products.filter((data)=> data.id === category);
     return (
         <div>
-            <h2>Producto</h2>
+            <h2>Marca</h2>
             <select className='form-text  option' onChange={handleChange} name='product_item'>
                 <option className='option' value='0'>Seleccione el producto</option>
                 {

@@ -8,11 +8,11 @@ require_once('../../connection/Connection.php');
         public function updateCant($id,$cant){
             try{
                 $pdo = $this->connection->connect();
-                $query = $pdo->prepare('UPDATE product SET cant = ? WHERE id = ?');
-                $result = $query->execute($id,$cant);    
-                return $result->fetchAll(PDO::FETCH_ASSOC);
-            }catch(PDOException ex){
-                return ['id'=>-1];
+                $query = $pdo->prepare('UPDATE product_item SET cant = cant + ? WHERE id = ?');
+                return $query->execute([$cant,$id]);    
+                
+            }catch(PDOException $ex){
+                return ['err'=>$ex->getMessage()];
             }
             
             

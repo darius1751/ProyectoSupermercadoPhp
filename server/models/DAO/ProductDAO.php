@@ -13,7 +13,7 @@
                 $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
                 $index = 0;
                 foreach($categories as $category){
-                    $statementCategory = $pdo->prepare('SELECT p.id,p.photo,p.cant,p.price_unit,m.name FROM product_item AS p 
+                    $statementCategory = $pdo->prepare('SELECT p.id,p.name AS productItemName,p.photo,p.cant,p.price_unit,m.name FROM product_item AS p 
                     INNER JOIN mark AS m ON m.id = p.mark_id
                     WHERE product_id = ?');
                     $statementCategory->execute([$category['id']]);

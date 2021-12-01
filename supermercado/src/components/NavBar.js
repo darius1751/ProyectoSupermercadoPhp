@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import { TYPES_USER } from "../actions/userAction";
-const NavBar = ()=>{
+const NavBar = ({fixed = 'static'})=>{
     const {userState,dispatchUser} = useContext(UserContext);
     const {user} = userState;
     const {type} = user;
@@ -11,14 +11,14 @@ const NavBar = ()=>{
     }
     
     return (
-        <nav className={`nav`}>
+        <nav className={`nav`} style={{position:fixed}}>
                 <NavLink to={`/profile/${user.userName}`} className='nav-link' activeClassName='active'>
                     <section className='nav-item'>
                         Perfil
                     </section>
                 </NavLink>
             
-                <NavLink to={`/sale`} className='nav-link'>
+                <NavLink to={`/products`} className='nav-link'>
                 <section className='nav-item'>
                     Comprar
                     </section>
@@ -54,7 +54,7 @@ const NavBar = ()=>{
             
             :null}
             
-            <NavLink to='/login' onClick={handleLogout} className='nav-link '>
+            <NavLink to='/login' onClick={handleLogout} className='nav-link'>
                 <section className='nav-item'>Cerrar Sesion</section>
             </NavLink>
             
