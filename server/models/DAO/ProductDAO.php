@@ -24,6 +24,14 @@
             }catch(PDOException $ex){
                 return ['id'=>-1];
             }
-        }   
+        } 
+
+        public function getAllMarks(){
+            $pdo = $this->con->connect();
+                $statement = $pdo->prepare('SELECT id,name FROM mark');
+                $statement->execute();
+                $marks = $statement->fetchAll(PDO::FETCH_ASSOC);
+                return $marks;
+        }
     }
 ?>
