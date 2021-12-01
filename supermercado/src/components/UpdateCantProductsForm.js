@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { helpHttp } from "../helpers/helpHttp";
 import SelectCategories from "./SelectCategories";
-import SelectProducts from "./SelectProducts";
+import SelectMark from "./SelectMark";
 import TOKEN from '../helpers/helpAuth';
 import { SalesContext } from "../context/SalesContext";
 import { TYPES_SALES } from "../actions/salesAction";
+
 const initialProduct = {
     product:'0',
     product_item:'0',
@@ -40,7 +41,7 @@ const UpdateCantProductsForm = ()=>{
         <div className='content'>
             <form onSubmit={handleSubmit}>
             <SelectCategories handleChange={handleChange}/>
-            {product.product !== '0' && <SelectProducts handleChange={handleChange} category={product.product}/>}
+            {product.product !== '0' && <SelectMark handleChange={handleChange} category={product.product}/>}
             {product.product_item !== '0' && <input className='form-text' type='number' name='cant' placeholder='Cantidad' value={product.cant} required min='1' onChange={handleChange}/>}
             {product.product_item !=='0' && <div><br/> <input className='submit' type='submit' value='Actualizar'/></div>}
             </form>
